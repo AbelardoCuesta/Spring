@@ -2,6 +2,7 @@ package net.javaguides.springboot.controller;
 
 import net.javaguides.springboot.bean.Person;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -26,5 +27,10 @@ public class PersonController {
         persons.add(new Person("Jhon",20));
         persons.add(new Person("Alex",20));
         return persons;
+    }
+
+    @GetMapping("persons/{id}")
+    public Person personPathVariable(@PathVariable("id") int personId){
+        return new Person ("Jhon",20);
     }
 }
